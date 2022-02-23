@@ -1,5 +1,6 @@
 # MetaMask插件
-<img width="391" alt="1" src="https://user-images.githubusercontent.com/8063750/155136260-373e35be-993a-4e4e-a27e-1ebd1bdbd8c9.png">
+
+<img width="382" alt="1" src="https://user-images.githubusercontent.com/8063750/155273177-a4e5ce57-5b37-4bd2-a8ec-a0ecee6561c7.png">
 
 # MetaMask发起一笔交易
 https://www.oklink.com/zh-cn/oec-test/tx/0x171397AEBCFC908D435AF113EBE0E59DF334FD6C2F2B12165EC7C8191C2DBE10
