@@ -14,4 +14,4 @@ https://www.oklink.com/zh-cn/oec-test/tx/0x36D1004A4D6CCBF6A458A1B0DB5AF8FB2483B
 https://www.oklink.com/zh-cn/oec-test/tx/0x5C028FFA221E253BDE6E81E0D0277832FB4E260C837C2A9E263A3F7E5D109DC9
 
 # 使用hardhat部署一个合约
-https://www.oklink.com/zh-cn/oec-test/tx/0xb83917c28c2a030122e061cc451918040a6c13d46a41777f9924598ce2d526c9?type=pending
+https://www.oklink.com/zh-cn/oec-test/tx/0xb83917c28c2a030122e061cc451918040a6c13d46a41777f9924598ce2d526c9
