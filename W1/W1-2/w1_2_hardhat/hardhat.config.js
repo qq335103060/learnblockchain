@@ -1,6 +1,6 @@
 require("@nomiclabs/hardhat-waffle");
 //账号秘钥
-const ROPSTEN = "e62d8843cea6f4fba8455ccbda40476964aa0d1668942e1a6b28fc4333a6b9fc";
+const ROPSTEN = "...";
 module.exports = {
   //部署网络
   defaultNetwork: "hardhat",
