@@ -11,6 +11,8 @@ contract Bank {
     //用户充值金额
     mapping(address => RechargeRecord[]) public user;
 
+    mapping(address => uint256) public userBalance;
+
     event Recharge(address indexed addr, uint256 amount, uint256 time);
 
     event Withdraw(address indexed addr, uint256 amount, uint256 time);
@@ -29,6 +31,7 @@ contract Bank {
         user[msg.sender].push(
             RechargeRecord({amount: msg.value, time: block.timestamp})
         );
+        userBalance[msg.sender] += msg.value;
         emit Recharge(msg.sender, msg.value, block.timestamp);
     }
 
@@ -36,6 +39,7 @@ contract Bank {
     function withdraw() public {
         require(address(this).balance > 0, "Sorry, your credit is running low");
         uint256 oldBalance = address(this).balance;
+        userBalance[msg.sender] = 0;
         (bool successc, ) = msg.sender.call{value: oldBalance}("");
         require(successc, "withdraw transfer failed");
         emit Withdraw(msg.sender, oldBalance, block.timestamp);
