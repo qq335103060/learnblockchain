@@ -11,4 +11,4 @@ https://goerli.etherscan.io/tx/0x9046c7d4295a9c7518e7ed6ff8d01d076cfa87fcc363267
 https://goerli.etherscan.io/tx/0x757e1707b21e3a08dd615991ed48a8b9d77e07927e831ee345d499cd3081c3db
 
 # 查询学生成绩
-<img width="528" alt="1" src="https://github.com/qq335103060/learnblockchain/tree/main/W2/W2-1/w2_1_hardhat/images/getStudent.png">
+<img width="528" alt="1" src="https://github.com/qq335103060/learnblockchain/tree/main/W2/W2-1/w2_2_hardhat/images/getStudent.png">
