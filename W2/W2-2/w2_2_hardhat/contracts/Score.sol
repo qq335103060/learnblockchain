@@ -21,7 +21,7 @@ contract Score {
     );
 
     modifier onlyTeacher() {
-        require(teacherAddr[tx.origin], "no authority");
+        require(teacherAddr[msg.sender], "no authority");
         _;
     }
 

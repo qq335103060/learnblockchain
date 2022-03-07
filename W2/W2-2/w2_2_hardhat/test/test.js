@@ -18,16 +18,16 @@ beforeEach(async function () {
 describe("Teacher", function () {
     it("addTeacher", async function () {
         //新老师权限
-        await score.addTeacher(addr1.address);
-        expect(await score.teacherAddr(addr1.address)).ok;
+        await score.addTeacher(teacher.address);
+        expect(await score.teacherAddr(teacher.address)).ok;
     });
     it("teacherSetStudentScore", async function () {
-        await score.addTeacher(addr1.address);
-        expect(await score.teacherAddr(addr1.address)).ok;
+        await score.addTeacher(teacher.address);
+        expect(await score.teacherAddr(teacher.address)).ok;
         //设置学生分数
-        await teacher.connect(addr1).teacherSetStudentScore(addr2.address, 90);
+        await teacher.teacherSetStudentScore(addr1.address, 90);
         // 查询学生
-        let student = await score.student(addr2.address);
+        let student = await score.student(addr1.address);
         expect(student.toString()).to.equal("90");
     });
 });
