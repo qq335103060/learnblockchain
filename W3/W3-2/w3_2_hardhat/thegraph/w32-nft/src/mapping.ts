@@ -1,4 +1,4 @@
-import { BigInt } from "@graphprotocol/graph-ts";
+import { Address, BigInt, Bytes } from "@graphprotocol/graph-ts";
 import {
   w32nft,
   Approval,
@@ -10,12 +10,16 @@ import { TransferEntity } from "../generated/schema";
 export function handleTransfer(event: Transfer): void {
   // Entities can be loaded from the store using a string ID; this ID
   // needs to be unique across all entities of the same type
-  let entity = TransferEntity.load(event.transaction.from.toHex());
+  // let entity = TransferEntity.load(
+  //   event.block.hash.toHex() + "-" + event.logIndex.toString()
+  //   // event.transaction.from.toHex() + "-" + event.logIndex.toString()+"-"+event.params.tokenId.toHex()
+  // );
+  let entity = TransferEntity.load(event.params.tokenId.toString());
 
   // Entities only exist after they have been saved to the store;
   // `null` checks allow to create entities on demand
   if (!entity) {
-    entity = new TransferEntity(event.transaction.from.toHex());
+    entity = new TransferEntity(event.params.tokenId.toString());
   }
 
   // Entity fields can be set based on event parameters
@@ -24,6 +28,16 @@ export function handleTransfer(event: Transfer): void {
   entity.to = event.params.to;
 
   entity.tokenId = event.params.tokenId;
+
+  //转账路径
+  let addr: Array<Bytes> = entity.path;
+  addr.push(event.params.from);
+  entity.path = addr;
+
+  //hahs路径
+  let hash: Array<Bytes> = entity.hashPath;
+  hash.push(event.transaction.hash);
+  entity.hashPath = hash;
 
   // Entities can be written to the store with `.save()`
   entity.save();
@@ -54,6 +68,10 @@ export function handleTransfer(event: Transfer): void {
   // - contract.tokenURI(...)
 }
 
-export function handleApprovalForAll(event: ApprovalForAll): void {}
+// export function handleApproval(event: Approval): void {
+//   let entity = TransferEntity.loadTo(event.params.owner);
+// }
+
+// export function handleApprovalForAll(event: ApprovalForAll): void {}
 
 // export function handleTransfer(event: Transfer): void {}

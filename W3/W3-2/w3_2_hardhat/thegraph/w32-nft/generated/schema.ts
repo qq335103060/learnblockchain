@@ -20,6 +20,8 @@ export class TransferEntity extends Entity {
     this.set("from", Value.fromBytes(Bytes.empty()));
     this.set("to", Value.fromBytes(Bytes.empty()));
     this.set("tokenId", Value.fromBigInt(BigInt.zero()));
+    this.set("path", Value.fromBytesArray([]));
+    this.set("hashPath", Value.fromBytesArray([]));
   }
 
   save(): void {
@@ -73,5 +75,23 @@ export class TransferEntity extends Entity {
 
   set tokenId(value: BigInt) {
     this.set("tokenId", Value.fromBigInt(value));
+  }
+
+  get path(): Array<Bytes> {
+    let value = this.get("path");
+    return value!.toBytesArray();
+  }
+
+  set path(value: Array<Bytes>) {
+    this.set("path", Value.fromBytesArray(value));
+  }
+
+  get hashPath(): Array<Bytes> {
+    let value = this.get("hashPath");
+    return value!.toBytesArray();
+  }
+
+  set hashPath(value: Array<Bytes>) {
+    this.set("hashPath", Value.fromBytesArray(value));
   }
 }
