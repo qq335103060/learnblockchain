@@ -14,3 +14,7 @@ https://goerli.etherscan.io/tx/0xf6fab2b2021151b598eb44b9c26b88c0ca462953f70d115
 # 筛选 TheGraph 子图
 
 ![qiEpyH5Dl7w8396](https://s2.loli.net/2022/03/14/qiEpyH5Dl7w8396.png)
+
+# 优化 TheGraph 子图，记录转账路径以及hash值，只记录剩余自己的NFT记录
+
+![iJuhpN8nHafFDjm](https://s2.loli.net/2022/03/15/iJuhpN8nHafFDjm.png)
