@@ -4,7 +4,7 @@ const myTokenMarket = require(`../deployments/dev/${network.name}-MyTokenMarket.
 async function main() {
   const [deployer] = await ethers.getSigners();
   let tokenMarket = await ethers.getContractAt(myTokenMarket.contractName, myTokenMarket.address, deployer);
-  //增加流动性
+  //兑换
   await tokenMarket.buyToken({value : ethers.utils.parseEther('0.0005')});
 }
 
@@ -15,4 +15,4 @@ main()
     process.exit(1);
 });
 
-//npx hardhat run scripts/add_buyToken_8.js --network goerli
+//npx hardhat run scripts/buy_token_8.js --network goerli
