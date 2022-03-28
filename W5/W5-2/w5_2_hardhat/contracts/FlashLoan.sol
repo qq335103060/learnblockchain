@@ -33,9 +33,8 @@ contract FlashLoan is FlashLoanSimpleReceiverBase {
     address v2Router = 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D;
     address v3Router = 0xE592427A0AEce92De3Edee1F18E0157C05861564;
     address AtokenAddress = 0xBD633A791c4B95f7Daa81066f93CF23eE7E240e2;
-    address Dai = 0x2Ec4c6fCdBF5F9beECeB1b51848fc2DB1f3a26af;
 
-    //测试网：PoolAddressesProvider:0xBA6378f1c1D046e9EB0F538560BA7558546edF3C
+    //测试网：PoolAddressesProvider:0xA55125A90d75a95EC00130E8E8C197dB5641Eb19
     constructor(address _addressProvider) FlashLoanSimpleReceiverBase(IPoolAddressesProvider(_addressProvider)) {}
 
     //借款单币种   DAI
@@ -82,8 +81,7 @@ contract FlashLoan is FlashLoanSimpleReceiverBase {
             })
         );
         //授权给Pool合约地址 还款
-        IERC20(asset).approve(ADDRESSES_PROVIDER.getPool(), totalDebt);
+        IERC20(borrowDai).approve(ADDRESSES_PROVIDER.getPool(), totalDebt);
         return true;
     }
-
 }
